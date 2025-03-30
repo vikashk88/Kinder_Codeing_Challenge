@@ -1,4 +1,4 @@
-import homePage from "./home.page";
+import { $ } from '@wdio/globals';
 
 class LoginPage{
 

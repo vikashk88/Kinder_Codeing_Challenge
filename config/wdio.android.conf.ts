@@ -1,16 +1,12 @@
 import { join } from 'path';
 import config from '../config/wdio.shared.local.conf';
 
-// ============
-// Specs
-// ============
+
 config.specs = [
     '../tests/specs/*.ts',
 ];
 
-// ============
-// Capabilities
-// ============
+
 config.capabilities = [
     {
         // The defaults you need to have in your config

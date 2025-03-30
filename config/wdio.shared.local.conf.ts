@@ -1,30 +1,21 @@
 import { config } from '../config/wdio.shared.conf';
 
-//
-// ======
-// Appium
-// ======
-//
+
 config.services = (config.services ? config.services : []).concat([
     [
         'appium',
         {
-            // This will use the globally installed version of Appium
             command: 'appium',
             args: {
-                // This is needed to tell Appium that we can execute local ADB commands
-                // and to automatically download the latest version of ChromeDriver
+                // Appium server arguments
+                // --session-override: Allow to override existing sessions
+                // --allow-insecure: Allow insecure server connections when using SSL
                 relaxedSecurity: true,
             },
         },
 
     ],
 ]);
-//
-// =====================
-// Server Configurations
-// =====================
-//
 config.port = 4723;
 
 export default config;

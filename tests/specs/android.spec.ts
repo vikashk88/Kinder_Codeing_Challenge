@@ -4,7 +4,7 @@ import SwipePage from "../../pageobjects/mobile/webdriverio/swipe.page";
 import FormsPage from "../../pageobjects/mobile/webdriverio/form.page";
 import WebViewPage from "../../pageobjects/mobile/webdriverio/webview.page";
 import DragScreen from "../../pageobjects/mobile/webdriverio/drag.page";
-import { driver } from "@wdio/globals";
+import { driver, expect } from '@wdio/globals';
 
 describe("Android Mobile automation tests", () => {
 
@@ -31,7 +31,6 @@ describe("Android Mobile automation tests", () => {
         await FormsPage.selectValue("Appium is awesome");
         expect(await FormsPage.getDropDownText()).toEqual("Appium is awesome");
         await FormsPage.tapOnActiveButton();
-        // await expect(await FormsScreen.messageTitle).toHaveText("This button is");
         await FormsPage.topOnButtonWithText("OK");
         expect(await FormsPage.inActiveButton).toHaveText("Inactive");
     });
@@ -73,16 +72,9 @@ describe("Android Mobile automation tests", () => {
         await DragScreen.dragC3.dragAndDrop(await DragScreen.dropC3);
         await DragScreen.dragR3.dragAndDrop(await DragScreen.dropR3);
 
-        // Wait for the retry button to be visible, meaning the success screen is there
-        // There is no expectation here because the waitForDisplayed will fail if the element is not visible
         await DragScreen.waitForRetryButton();
 
-        // Retry
         await DragScreen.tapOnRetryButton();
-        // Wait for the renew button to be visible, meaning the puzzle is shown again
-        // There is no expectation here because the waitForDisplayed will fail if the element is not visible
         await DragScreen.waitForRenewButton();
     });
 });
-
-

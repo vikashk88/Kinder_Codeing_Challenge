@@ -1,5 +1,4 @@
-
-import { driver } from '@wdio/globals';
+import { $, driver,expect } from '@wdio/globals';
 
 export const DOCUMENT_READY_STATE = {
     COMPLETE: 'complete',
@@ -22,7 +21,7 @@ class WebViewPage {
         await driver.waitUntil(async () => {
             // Check if the WebView is loaded by checking the document ready state
             const readyState = await driver.execute(() => document.readyState);
-            await driver.pause(1000);
+            await new Promise(resolve => setTimeout(resolve, 1000));
             return (await driver.execute(() => document.readyState)) === DOCUMENT_READY_STATE.COMPLETE;
         }
             , {

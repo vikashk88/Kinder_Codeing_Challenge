@@ -1,5 +1,4 @@
 import { $, driver } from '@wdio/globals';
-// import { driver } from '@wdio/appium-service';
 
 class FormsPage  {
     
